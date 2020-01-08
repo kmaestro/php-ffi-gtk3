@@ -14,11 +14,7 @@ class Gtk
     private function __wakeup() {}
     private function __construct() {}
 
-    /**
-     * @param int $argc
-     * @param array $argv
-     */
-    public static function init(int $argc=0, array $argv=[])
+    public static function init()
     {
         $argc = FFI::new('int');
         $argv = FFI::new('char[0]');

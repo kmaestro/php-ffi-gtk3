@@ -4,8 +4,11 @@ require __DIR__ . '/vendor/autoload.php';
 \Kmaestro\Gtk3\Gtk::init();
 $w = new \Kmaestro\Gtk3\Gtk\Window();
 $w->setTitle('test');
-\Kmaestro\Gtk3\Gtk\Widget::show($w);
-//\Kmaestro\Gtk3::getFFI()->gtk_widget_show($w);
+
+$button = new \Kmaestro\Gtk3\Gtk\Button('test');
+$c = new \Kmaestro\Gtk3\Gtk\Container();
+$c->add($w, $button);
+\Kmaestro\Gtk3\Gtk\Widget::showAll($w);
 \Kmaestro\Gtk3\Gtk::main();
 
 
