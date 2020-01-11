@@ -1,0 +1,66 @@
+/* GtkLabel全体のスタイル */
+label {
+    color: red;
+    background-color: transparent;
+    font: 20px Sans;
+}
+
+/* GtkSpinnerのノード名はspinner */
+spinner {
+    color: blue;
+    background-color: gray;
+}
+
+/* GtkButtonの設定 */
+.text-button {
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: grey;
+    background-image: none;
+    background-color: rgb(211, 211, 211);
+}
+
+/* GtkButton内のGtkLabelに対して設定 */
+.text-button label {
+    color: green;
+}
+
+/* 独自定義のスタイルクラス for GtkButton */
+.button-ligt-gray {
+    border-image: none;
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 20px;
+    border-color: black;
+    background-image: none;
+    background-color: aqua;
+ }
+
+/* ボタン共通の押下時の設定 */
+button:hover:active {
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: grey;
+    background-image: none;
+    background-color: orange;
+    color: cyan;
+}
+
+/* GtkToggleButtonのチェックON時 */
+.toggle:checked {
+    background-color:red;
+}
+
+/* GtkSwitchのチェックON時 */
+switch:checked {
+    background-color:burlywood;
+}
+
+/* GtkTextViewのテキストカラー設定 */
+textview.view text {
+    color: royalblue;
+}

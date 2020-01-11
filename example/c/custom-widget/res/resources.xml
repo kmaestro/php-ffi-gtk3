@@ -1,0 +1,5 @@
+<gresources>
+  <gresource prefix="/gtk/examples/custom-widget/">
+    <file compressed="true">GtkListBoxItem.glade</file>
+  </gresource>
+</gresources>
