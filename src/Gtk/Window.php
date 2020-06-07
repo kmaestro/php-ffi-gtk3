@@ -42,11 +42,21 @@ class Window
     }
 
     /**
-     * @param string $title
+     * @throws \Exception
      */
     public function fullscreen()
     {
         Gtk::getInstance()->gtk_window_fullscreen(
+            Gtk::getInstance()->cast("GtkWindow *", $this->instance)
+        );
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function unfullscreen()
+    {
+        Gtk::getInstance()->gtk_window_unfullscreen (
             Gtk::getInstance()->cast("GtkWindow *", $this->instance)
         );
     }

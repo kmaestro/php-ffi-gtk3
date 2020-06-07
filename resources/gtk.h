@@ -33,6 +33,7 @@ void gtk_widget_show_all (GtkWidget *);
 guint g_timeout_add (guint interval, GSourceFunc function, gpointer data);
 GtkWidget * gtk_label_new (const gchar *str);
 void gtk_window_fullscreen(GtkWindow *window);
+void gtk_window_unfullscreen (GtkWindow *window);
 void gtk_label_set_text (GtkLabel *label,const gchar *str);
 gulong g_signal_connect_data(
     gpointer instance,

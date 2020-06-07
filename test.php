@@ -17,7 +17,7 @@ $c = new \Gtk3\Gtk\Container();
 $label = new \Gtk3\Gtk\Label(date(DATE_ATOM));
 $c->add($w, $label);
 \Gtk3\Gtk\Widget::showAll($w);
-$gtk->g_timeout_add(100, function () use ($label){
+$gtk->g_timeout_add(2000, function () use ($label){
     $label->setText(date(DATE_ATOM));
     return true;
 }, null);
