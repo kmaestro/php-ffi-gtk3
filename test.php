@@ -8,6 +8,7 @@ function label_countup() {
 }
 $gtk->init();
 $w = new \Gtk3\Gtk\Window();
+$w->fullscreen();
 $w->setTitle('test');
 $w->setSize(500, 100);
 $s = new \Gtk3\Gtk\Signal();

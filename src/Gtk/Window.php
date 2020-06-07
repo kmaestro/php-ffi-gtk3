@@ -40,4 +40,14 @@ class Window
     {
         Gtk::getInstance()->gtk_window_set_default_size(Gtk::getInstance()->cast("GtkWindow *", $this->instance), $width, $height);
     }
+
+    /**
+     * @param string $title
+     */
+    public function fullscreen()
+    {
+        Gtk::getInstance()->gtk_window_fullscreen(
+            Gtk::getInstance()->cast("GtkWindow *", $this->instance)
+        );
+    }
 }
