@@ -1,41 +1,93 @@
 <?php
 
-namespace Kmaestro\Gtk3;
+declare(strict_types=1);
+
+namespace Gtk3;
 
 use FFI;
+use Gtk3\Library;
+use Gtk3\Support\ProxyTrait;
+use Gtk3\Support\SingletonTrait;
+use Serafim\FFILoader\LibraryInformation;
+use Serafim\FFILoader\LibraryInterface;
+use Serafim\FFILoader\Loader;
 
 /**
  * Class Gtk3
- * @package Kmaestro
  */
 class Gtk
 {
-    private function __clone() {}
-    private function __wakeup() {}
-    private function __construct() {}
+    use ProxyTrait;
+    use SingletonTrait;
 
-    public static function init()
+    public LibraryInformation $info;
+
+    public Loader $loader;
+
+    /**
+     * Gtk constructor.
+     */
+    public function __construct()
     {
-        $argc = FFI::new('int');
-        $argv = FFI::new('char[0]');
-        $pargv = FFI::addr($argv);
+        $this->loader = $this->loader();
 
-        FfiGtk::getFFI()->gtk_init(FFI::addr($argc), FFI::addr($pargv));
+        $this->info = $this->loadLibrary(new Library());
+
+        self::setInstance($this);
+    }
+
+    /**
+     * @return Loader
+     */
+    private function loader(): Loader
+    {
+        $loader = new Loader();
+
+        $pre = $loader->preprocessor();
+        $pre->keepComments = false;
+        $pre->minify = false;
+        $pre->tolerant = false;
+
+        return $loader;
+    }
+
+    /**
+     * @param LibraryInterface $library
+     * @return LibraryInformation
+     */
+    public function loadLibrary(LibraryInterface $library): LibraryInformation
+    {
+        return $this->loader->load($library);
+    }
+
+    /**
+     * @param int $argc
+     * @param array $argv
+     * @throws \Exception
+     */
+    public function init(int $argc = 0, array $argv = [])
+    {
+        $argcPtr = $this->new('int');
+        $argcPtr->cdata = $argc;
+        $argvPtr = FFI::new('char**');
+        $argcPtr->cdata = $argc;
+
+        $this->gtk_init(FFI::addr($argcPtr), FFI::addr($argvPtr));
     }
 
     /**
      *
      */
-    public static function main(): void
+    public function main(): void
     {
-        FfiGtk::getFFI()->gtk_main();
+        $this->gtk_main();
     }
 
     /**
      *
      */
-    public static function mainQuit(): void
+    public function mainQuit(): void
     {
-        FfiGtk::getFFI()->gtk_main_quit();
+        $this->gtk_main_quit();
     }
 }

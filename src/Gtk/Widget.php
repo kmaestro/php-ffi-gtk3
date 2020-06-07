@@ -1,14 +1,14 @@
 <?php
 
+declare(strict_types=1);
 
-namespace Kmaestro\Gtk3\Gtk;
+namespace Gtk3\Gtk;
 
-
+use Gtk3\Gtk;
 use Kmaestro\Gtk3\FfiGtk;
 
 /**
  * Class Widget
- * @package Kmaestro\Gtk
  */
 class Widget
 {
@@ -17,13 +17,13 @@ class Widget
      */
     public static function show(Window $window)
     {
-        FfiGtk::getFFI()->gtk_widget_show(FfiGtk::getFFI()->cast("GtkWidget *", $window->instance));
+        Gtk::getInstance()->gtk_widget_show(Gtk::getInstance()->cast("GtkWidget *", $window->instance));
     }
     /**
      * @param Window $window
      */
     public static function showAll(Window $window)
     {
-        FfiGtk::getFFI()->gtk_widget_show_all(FfiGtk::getFFI()->cast("GtkWidget *", $window->instance));
+        Gtk::getInstance()->gtk_widget_show_all(Gtk::getInstance()->cast("GtkWidget *", $window->instance));
     }
 }

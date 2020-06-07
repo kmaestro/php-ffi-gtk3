@@ -1,16 +1,22 @@
 <?php
 
+declare(strict_types=1);
 
-namespace Kmaestro\Gtk3\Gtk;
+namespace Gtk3\Gtk;
 
+use Gtk3\Gtk;
+use Gtk3\Gtk\Window;
 
-use Kmaestro\Gtk3\FfiGtk;
-
+/**
+ * Class Container
+ */
 class Container
 {
-
     public function add(Window $window, Widget $widget)
     {
-        FfiGtk::getFFI()->gtk_container_add(FfiGtk::getFFI()->cast("GtkContainer *", $window->instance), FfiGtk::getFFI()->cast("GtkWidget *", $widget->instance));
+        Gtk::getInstance()->gtk_container_add(
+            Gtk::getInstance()->cast("GtkContainer *", $window->instance),
+            Gtk::getInstance()->cast("GtkWidget *", $widget->instance)
+        );
     }
 }

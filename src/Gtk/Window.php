@@ -1,14 +1,14 @@
 <?php
 
+declare(strict_types=1);
 
-namespace Kmaestro\Gtk3\Gtk;
+namespace Gtk3\Gtk;
 
-
+use Gtk3\Gtk;
 use Kmaestro\Gtk3\FfiGtk;
 
 /**
  * Class Window
- * @package Kmaestro\Gtk
  */
 class Window
 {
@@ -22,14 +22,22 @@ class Window
      */
     public function __construct()
     {
-        $this->instance = FfiGtk::getFFI()->gtk_window_new(0);
+        $this->instance = Gtk::getInstance()->gtk_window_new(0);
     }
 
     /**
      * @param string $title
      */
-    public function setTitle(string $title="")
+    public function setTitle(string $title)
     {
-        FfiGtk::getFFI()->gtk_window_set_title(FfiGtk::getFFI()->cast("GtkWindow *", $this->instance), $title);
+        Gtk::getInstance()->gtk_window_set_title(Gtk::getInstance()->cast("GtkWindow *", $this->instance), $title);
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setSize(int $width, int $height)
+    {
+        Gtk::getInstance()->gtk_window_set_default_size(Gtk::getInstance()->cast("GtkWindow *", $this->instance), $width, $height);
     }
 }

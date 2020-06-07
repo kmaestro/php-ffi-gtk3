@@ -8,11 +8,12 @@
     ],
     "require": {
         "php": "^7.4",
-        "ext-FFI": "^7.4"
+        "ext-FFI": "^7.4",
+        "serafim/ffi-loader": "^1.0"
     },
     "autoload": {
         "psr-4": {
-            "Kmaestro\\Gtk3\\": "src"
+            "Gtk3\\": "src"
         }
     }
 }
