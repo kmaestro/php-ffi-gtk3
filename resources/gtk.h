@@ -7,12 +7,15 @@ typedef void* gpointer;
 typedef void* (*GCallback) (void*, void*);
 typedef struct _GClosureNotify GClosureNotify;
 typedef struct _GConnectFlags GConnectFlags;
+typedef struct _GError GError;
 typedef struct _GClosureNotifyData GClosureNotifyData;
 typedef gboolean (*GSourceFunc) (gpointer user_data);
 extern void gtk_init(int *, char **[]);
 void gtk_main();
 void gtk_main_quit();
 typedef struct _GtkWidget GtkWidget;
+typedef struct _GtkGrid GtkGrid;
+typedef struct _GtkBuilder GtkBuilder;
 typedef struct _GtkWindow GtkWindow;
 typedef struct _GtkContainer GtkContainer;
 typedef struct _GtkLabel GtkLabel;
@@ -34,6 +37,10 @@ guint g_timeout_add (guint interval, GSourceFunc function, gpointer data);
 GtkWidget * gtk_label_new (const gchar *str);
 void gtk_window_fullscreen(GtkWindow *window);
 void gtk_window_unfullscreen (GtkWindow *window);
+GtkWidget *gtk_grid_new (void);
+void gtk_grid_attach(GtkGrid *grid, GtkWidget *child, gint left, gint top, gint width, gint height);
+GtkBuilder* gtk_builder_new(void);
+guint gtk_builder_add_from_file(GtkBuilder *builder, const gchar *filename, GError **error);
 void gtk_label_set_text (GtkLabel *label,const gchar *str);
 gulong g_signal_connect_data(
     gpointer instance,
