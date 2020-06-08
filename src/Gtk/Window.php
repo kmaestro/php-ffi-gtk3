@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Gtk3\Gtk;
 
 use Gtk3\Gtk;
-use Kmaestro\Gtk3\FfiGtk;
 
 /**
  * Class Window
@@ -48,6 +47,22 @@ class Window
     {
         Gtk::getInstance()->gtk_window_fullscreen(
             Gtk::getInstance()->cast("GtkWindow *", $this->instance)
+        );
+    }
+
+    public function setSizeRequest($width, $height)
+    {
+        Gtk::getInstance()->gtk_widget_set_size_request (
+            Gtk::getInstance()->cast("GtkWidget *", $this->instance),
+            $width, $height
+        );
+    }
+
+    public function setPosition($position)
+    {
+        Gtk::getInstance()->gtk_window_set_position(
+            Gtk::getInstance()->cast("GtkWindow *", $this->instance),
+            $position
         );
     }
 

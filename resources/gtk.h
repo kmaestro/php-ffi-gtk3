@@ -22,6 +22,15 @@ typedef enum
   GTK_WINDOW_POPUP
 } GtkWindowType;
 
+typedef enum
+{
+  GTK_WIN_POS_NONE,
+  GTK_WIN_POS_CENTER,
+  GTK_WIN_POS_MOUSE,
+  GTK_WIN_POS_CENTER_ALWAYS,
+  GTK_WIN_POS_CENTER_ON_PARENT
+} GtkWindowPosition;
+
 GtkWidget * gtk_window_new (GtkWindowType type);
 void gtk_window_set_default_size (GtkWindow *window,gint width,gint height);
 void gtk_widget_show (GtkWidget *);
@@ -34,6 +43,8 @@ guint g_timeout_add (guint interval, GSourceFunc function, gpointer data);
 GtkWidget * gtk_label_new (const gchar *str);
 void gtk_window_fullscreen(GtkWindow *window);
 void gtk_window_unfullscreen (GtkWindow *window);
+void gtk_widget_set_size_request(GtkWidget *widget, gint width, gint height);
+void gtk_window_set_position (GtkWindow *window, GtkWindowPosition position);
 void gtk_label_set_text (GtkLabel *label,const gchar *str);
 gulong g_signal_connect_data(
     gpointer instance,
