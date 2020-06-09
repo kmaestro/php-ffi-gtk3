@@ -36,7 +36,7 @@ spinner {
     border-color: black;
     background-image: none;
     background-color: aqua;
- }
+}
 
 button:hover:active {
     border-image: none;
