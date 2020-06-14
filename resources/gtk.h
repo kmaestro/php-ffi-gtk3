@@ -54,18 +54,9 @@ typedef enum
   GTK_WIN_POS_CENTER_ON_PARENT
 } GtkWindowPosition;
 
-
-
-
-GtkBuilder* gtk_builder_new(void);
-GdkScreen* gdk_screen_get_default(void);
-
 gboolean gtk_css_provider_load_from_path(GtkCssProvider *css_provider, const gchar *path, GError **error);
-guint gtk_builder_add_from_file(GtkBuilder *builder, const gchar *filename, GError **error);
 
 int g_application_run (GApplication *application, int argc, char **argv);
-guint gtk_builder_add_from_file (GtkBuilder *builder,const gchar *filename,GError **error);
-GObject* gtk_builder_get_object(GtkBuilder *builder, const gchar *name);
 
 void g_object_set(gpointer object, const gchar *first_property_name, ...);
 GtkTextBuffer* gtk_text_view_get_buffer(GtkTextView *text_view);
@@ -92,4 +83,6 @@ gulong g_signal_connect_data(
 #include "functions/gtk/style.h"
 #include "functions/gtk/grid.h"
 #include "functions/gtk/application.h"
+#include "functions/gtk/builder.h"
 #include "functions/g/main.h"
+#include "functions/gdk/screen.h"

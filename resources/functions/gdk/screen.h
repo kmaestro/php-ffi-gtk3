@@ -1,0 +1,1 @@
+extern GdkScreen* gdk_screen_get_default(void);
