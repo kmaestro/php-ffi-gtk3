@@ -14,12 +14,12 @@ class Library extends BaseLibrary
 
     public function getName(): string
     {
-        return 'gtk';
+        return 'gtk3';
     }
 
     public function getVersion(string $library): string
     {
-        return 1;
+        return '0.0.1';
     }
 
     public function getHeaders(): string
