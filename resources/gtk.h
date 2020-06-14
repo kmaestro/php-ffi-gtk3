@@ -54,8 +54,6 @@ typedef enum
   GTK_WIN_POS_CENTER_ON_PARENT
 } GtkWindowPosition;
 
-guint g_timeout_add (guint interval, GSourceFunc function, gpointer data);
-
 
 
 void gtk_style_context_add_provider_for_screen(GdkScreen *screen,GtkStyleProvider *provider,guint priority);
@@ -88,9 +86,10 @@ gulong g_signal_connect_data(
     );
 
 
-#include "functions/main_loop_and_events.h"
-#include "functions/gtk_widget.h"
-#include "functions/gtk_window.h"
-#include "functions/gtk_button.h"
-#include "functions/gtk_label.h"
-#include "functions/gtk_container.h"
+#include "functions/gtk/main.h"
+#include "functions/gtk/widget.h"
+#include "functions/gtk/window.h"
+#include "functions/gtk/button.h"
+#include "functions/gtk/label.h"
+#include "functions/gtk/container.h"
+#include "functions/g/main.h"
