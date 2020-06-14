@@ -55,7 +55,6 @@ typedef enum
 } GtkWindowPosition;
 
 guint g_timeout_add (guint interval, GSourceFunc function, gpointer data);
-GtkWidget * gtk_label_new (const gchar *str);
 
 
 
@@ -68,7 +67,7 @@ GdkScreen* gdk_screen_get_default(void);
 
 gboolean gtk_css_provider_load_from_path(GtkCssProvider *css_provider, const gchar *path, GError **error);
 guint gtk_builder_add_from_file(GtkBuilder *builder, const gchar *filename, GError **error);
-void gtk_label_set_text (GtkLabel *label,const gchar *str);
+
 int g_application_run (GApplication *application, int argc, char **argv);
 guint gtk_builder_add_from_file (GtkBuilder *builder,const gchar *filename,GError **error);
 GObject* gtk_builder_get_object(GtkBuilder *builder, const gchar *name);
@@ -93,4 +92,5 @@ gulong g_signal_connect_data(
 #include "functions/gtk_widget.h"
 #include "functions/gtk_window.h"
 #include "functions/gtk_button.h"
+#include "functions/gtk_label.h"
 #include "functions/gtk_container.h"
