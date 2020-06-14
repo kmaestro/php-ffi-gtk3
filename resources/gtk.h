@@ -54,9 +54,6 @@ typedef enum
   GTK_WIN_POS_CENTER_ON_PARENT
 } GtkWindowPosition;
 
-
-GtkWidget *gtk_button_new_with_label (const gchar *label);
-
 guint g_timeout_add (guint interval, GSourceFunc function, gpointer data);
 GtkWidget * gtk_label_new (const gchar *str);
 
@@ -95,4 +92,5 @@ gulong g_signal_connect_data(
 #include "functions/main_loop_and_events.h"
 #include "functions/gtk_widget.h"
 #include "functions/gtk_window.h"
+#include "functions/gtk_button.h"
 #include "functions/gtk_container.h"
