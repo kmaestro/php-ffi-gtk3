@@ -1,13 +1,11 @@
 #include "type/base.h"
+
 typedef void* (*GCallback) (void*, void*);
 typedef struct _GClosureNotify GClosureNotify;
 typedef struct _GConnectFlags GConnectFlags;
 typedef struct _GError GError;
 typedef struct _GClosureNotifyData GClosureNotifyData;
 typedef gboolean (*GSourceFunc) (gpointer user_data);
-extern void gtk_init(int *, char **[]);
-void gtk_main();
-void gtk_main_quit();
 typedef struct _GtkWidget GtkWidget;
 typedef struct _GtkGrid GtkGrid;
 typedef struct _GtkBuilder GtkBuilder;
@@ -56,20 +54,15 @@ typedef enum
   GTK_WIN_POS_CENTER_ON_PARENT
 } GtkWindowPosition;
 
-GtkWidget * gtk_window_new (GtkWindowType type);
-void gtk_window_set_default_size (GtkWindow *window,gint width,gint height);
-void gtk_widget_show (GtkWidget *);
-void gtk_window_set_title (GtkWindow *window, gchar *title);
-void gtk_window_get_size (GtkWindow *window, gint *width, gint *height);
+
 void gtk_container_add (GtkContainer *container, GtkWidget *widget);
 GtkWidget *gtk_button_new_with_label (const gchar *label);
 void gtk_widget_show_all (GtkWidget *);
 guint g_timeout_add (guint interval, GSourceFunc function, gpointer data);
 GtkWidget * gtk_label_new (const gchar *str);
-void gtk_window_fullscreen(GtkWindow *window);
-void gtk_window_unfullscreen (GtkWindow *window);
+
+
 void gtk_widget_set_size_request(GtkWidget *widget, gint width, gint height);
-void gtk_window_set_position (GtkWindow *window, GtkWindowPosition position);
 void gtk_style_context_add_provider_for_screen(GdkScreen *screen,GtkStyleProvider *provider,guint priority);
 GtkWidget *gtk_grid_new (void);
 GtkApplication* gtk_application_new(const gchar *application_id, GApplicationFlags flags);
@@ -98,3 +91,7 @@ gulong g_signal_connect_data(
     GCallback destroy_data,
     int connect_flags
     );
+
+
+#include "functions/main_loop_and_events.h"
+#include "functions/gtk_window.h"
