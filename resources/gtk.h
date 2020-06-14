@@ -56,7 +56,7 @@ typedef enum
 
 
 
-void gtk_style_context_add_provider_for_screen(GdkScreen *screen,GtkStyleProvider *provider,guint priority);
+
 GtkWidget *gtk_grid_new (void);
 GtkApplication* gtk_application_new(const gchar *application_id, GApplicationFlags flags);
 void gtk_grid_attach(GtkGrid *grid, GtkWidget *child, gint left, gint top, gint width, gint height);
@@ -69,7 +69,7 @@ guint gtk_builder_add_from_file(GtkBuilder *builder, const gchar *filename, GErr
 int g_application_run (GApplication *application, int argc, char **argv);
 guint gtk_builder_add_from_file (GtkBuilder *builder,const gchar *filename,GError **error);
 GObject* gtk_builder_get_object(GtkBuilder *builder, const gchar *name);
-void gtk_style_context_add_class(GtkStyleContext *context,const gchar *class_name);
+
 void g_object_set(gpointer object, const gchar *first_property_name, ...);
 GtkTextBuffer* gtk_text_view_get_buffer(GtkTextView *text_view);
 GtkCssProvider* gtk_css_provider_new(void);
@@ -92,4 +92,5 @@ gulong g_signal_connect_data(
 #include "functions/gtk/button.h"
 #include "functions/gtk/label.h"
 #include "functions/gtk/container.h"
+#include "functions/gtk/style.h"
 #include "functions/g/main.h"
