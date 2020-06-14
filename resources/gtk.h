@@ -54,13 +54,12 @@ typedef enum
   GTK_WIN_POS_CENTER_ON_PARENT
 } GtkWindowPosition;
 
-gboolean gtk_css_provider_load_from_path(GtkCssProvider *css_provider, const gchar *path, GError **error);
 
 int g_application_run (GApplication *application, int argc, char **argv);
 
 void g_object_set(gpointer object, const gchar *first_property_name, ...);
 GtkTextBuffer* gtk_text_view_get_buffer(GtkTextView *text_view);
-GtkCssProvider* gtk_css_provider_new(void);
+
 void gtk_text_buffer_set_text(GtkTextBuffer *buffer,const gchar *text,gint len);
 gpointer g_object_ref_sink(gpointer object);
 void g_object_unref (gpointer object);
@@ -81,6 +80,7 @@ gulong g_signal_connect_data(
 #include "functions/gtk/label.h"
 #include "functions/gtk/container.h"
 #include "functions/gtk/style.h"
+#include "functions/gtk/css_provider.h"
 #include "functions/gtk/grid.h"
 #include "functions/gtk/application.h"
 #include "functions/gtk/builder.h"
