@@ -55,12 +55,7 @@ typedef enum
 } GtkWindowPosition;
 
 
-void g_object_set(gpointer object, const gchar *first_property_name, ...);
-GtkTextBuffer* gtk_text_view_get_buffer(GtkTextView *text_view);
-
 void gtk_text_buffer_set_text(GtkTextBuffer *buffer,const gchar *text,gint len);
-gpointer g_object_ref_sink(gpointer object);
-void g_object_unref (gpointer object);
 gulong g_signal_connect_data(
     gpointer instance,
     const gchar *detailed_signal,
@@ -82,6 +77,8 @@ gulong g_signal_connect_data(
 #include "functions/gtk/grid.h"
 #include "functions/gtk/application.h"
 #include "functions/gtk/builder.h"
+#include "functions/gtk/text_view.h"
 #include "functions/g/main.h"
 #include "functions/g/application.h"
+#include "functions/g/object.h"
 #include "functions/gdk/screen.h"
