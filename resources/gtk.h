@@ -1,9 +1,4 @@
-typedef char gchar;
-typedef int gint;
-typedef int guint;
-typedef bool gboolean;
-typedef unsigned long gulong;
-typedef void* gpointer;
+#include "type/base.h"
 typedef void* (*GCallback) (void*, void*);
 typedef struct _GClosureNotify GClosureNotify;
 typedef struct _GConnectFlags GConnectFlags;
