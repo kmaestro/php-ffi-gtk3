@@ -1,0 +1,1 @@
+extern gulong g_signal_connect_data(gpointer instance, const gchar *detailed_signal, GCallback c_handler, void* data, GCallback destroy_data, int connect_flags);
