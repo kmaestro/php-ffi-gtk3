@@ -56,7 +56,6 @@ typedef enum
 
 
 
-GtkApplication* gtk_application_new(const gchar *application_id, GApplicationFlags flags);
 
 GtkBuilder* gtk_builder_new(void);
 GdkScreen* gdk_screen_get_default(void);
@@ -91,4 +90,6 @@ gulong g_signal_connect_data(
 #include "functions/gtk/label.h"
 #include "functions/gtk/container.h"
 #include "functions/gtk/style.h"
+#include "functions/gtk/grid.h"
+#include "functions/gtk/application.h"
 #include "functions/g/main.h"
