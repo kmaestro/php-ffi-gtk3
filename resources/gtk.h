@@ -55,21 +55,20 @@ typedef enum
 } GtkWindowPosition;
 
 
-void gtk_container_add (GtkContainer *container, GtkWidget *widget);
 GtkWidget *gtk_button_new_with_label (const gchar *label);
-void gtk_widget_show_all (GtkWidget *);
+
 guint g_timeout_add (guint interval, GSourceFunc function, gpointer data);
 GtkWidget * gtk_label_new (const gchar *str);
 
 
-void gtk_widget_set_size_request(GtkWidget *widget, gint width, gint height);
+
 void gtk_style_context_add_provider_for_screen(GdkScreen *screen,GtkStyleProvider *provider,guint priority);
 GtkWidget *gtk_grid_new (void);
 GtkApplication* gtk_application_new(const gchar *application_id, GApplicationFlags flags);
 void gtk_grid_attach(GtkGrid *grid, GtkWidget *child, gint left, gint top, gint width, gint height);
 GtkBuilder* gtk_builder_new(void);
 GdkScreen* gdk_screen_get_default(void);
-GtkStyleContext* gtk_widget_get_style_context (GtkWidget *widget);
+
 gboolean gtk_css_provider_load_from_path(GtkCssProvider *css_provider, const gchar *path, GError **error);
 guint gtk_builder_add_from_file(GtkBuilder *builder, const gchar *filename, GError **error);
 void gtk_label_set_text (GtkLabel *label,const gchar *str);
@@ -94,4 +93,6 @@ gulong g_signal_connect_data(
 
 
 #include "functions/main_loop_and_events.h"
+#include "functions/gtk_widget.h"
 #include "functions/gtk_window.h"
+#include "functions/gtk_container.h"
