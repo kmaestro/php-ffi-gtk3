@@ -55,8 +55,6 @@ typedef enum
 } GtkWindowPosition;
 
 
-int g_application_run (GApplication *application, int argc, char **argv);
-
 void g_object_set(gpointer object, const gchar *first_property_name, ...);
 GtkTextBuffer* gtk_text_view_get_buffer(GtkTextView *text_view);
 
@@ -85,4 +83,5 @@ gulong g_signal_connect_data(
 #include "functions/gtk/application.h"
 #include "functions/gtk/builder.h"
 #include "functions/g/main.h"
+#include "functions/g/application.h"
 #include "functions/gdk/screen.h"
