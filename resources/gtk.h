@@ -56,10 +56,8 @@ typedef enum
 
 
 
-
-GtkWidget *gtk_grid_new (void);
 GtkApplication* gtk_application_new(const gchar *application_id, GApplicationFlags flags);
-void gtk_grid_attach(GtkGrid *grid, GtkWidget *child, gint left, gint top, gint width, gint height);
+
 GtkBuilder* gtk_builder_new(void);
 GdkScreen* gdk_screen_get_default(void);
 
