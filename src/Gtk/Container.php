@@ -15,8 +15,8 @@ class Container
     public function add(Window $window, Widget $widget)
     {
         Gtk::getInstance()->gtk_container_add(
-            Gtk::getInstance()->cast("GtkContainer *", $window->instance),
-            Gtk::getInstance()->cast("GtkWidget *", $widget->instance)
+            Gtk::getInstance()->cast("GtkContainer *", $window->widget),
+            Gtk::getInstance()->cast("GtkWidget *", $widget->widget)
         );
     }
 }

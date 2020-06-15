@@ -18,14 +18,14 @@ class Grid extends Widget
      */
     public function __construct()
     {
-        $this->instance = Gtk::getInstance()->gtk_grid_new();
+        $this->widget = Gtk::getInstance()->gtk_grid_new();
     }
 
     public function attach(Widget $widget, int $left, int $top, int $width, int $height)
     {
         Gtk::getInstance()->gtk_grid_attach(
-            Gtk::getInstance()->cast('GtkGrid *', $this->instance),
-            Gtk::getInstance()->cast('GtkWidget *', $widget->instance),
+            Gtk::getInstance()->cast('GtkGrid *', $this->widget),
+            Gtk::getInstance()->cast('GtkWidget *', $widget->widget),
             $left, $top, $width, $height
         );
     }

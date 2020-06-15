@@ -11,8 +11,8 @@ use Gtk3\Gtk;
  */
 class Signal
 {
-    public function connect($instance, $detailed_signal, $c_handler, $data = null)
+    public function connect(Widget $instance, $detailed_signal, $c_handler, $data = null)
     {
-        return Gtk::getInstance()->g_signal_connect_data($instance, $detailed_signal, $c_handler, $data, null, null);
+        return Gtk::getInstance()->g_signal_connect_data($instance->widget, $detailed_signal, $c_handler, $data, null, null);
     }
 }
