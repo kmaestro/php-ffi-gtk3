@@ -11,6 +11,11 @@ use Gtk3\Gtk;
  */
 class Button extends Widget
 {
+    /**
+     * Button constructor.
+     *
+     * @param string $text
+     */
     public function __construct(string $text)
     {
         $this->widget = Gtk::getInstance()->gtk_button_new_with_label($text);

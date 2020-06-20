@@ -6,13 +6,13 @@ namespace Gtk3\Gtk;
 
 use Gtk3\Gtk;
 
+/**
+ * Class Grid
+ *
+ * @package Gtk3\Gtk
+ */
 class Grid extends Widget
 {
-    /**
-     * @var
-     */
-    public $instance;
-
     /**
      * Window constructor.
      */
@@ -21,6 +21,15 @@ class Grid extends Widget
         $this->widget = Gtk::getInstance()->gtk_grid_new();
     }
 
+    /**
+     * @param Widget $widget
+     * @param int    $left
+     * @param int    $top
+     * @param int    $width
+     * @param int    $height
+     *
+     * @throws \Exception
+     */
     public function attach(Widget $widget, int $left, int $top, int $width, int $height)
     {
         Gtk::getInstance()->gtk_grid_attach(

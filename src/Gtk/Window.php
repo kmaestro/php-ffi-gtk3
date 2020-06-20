@@ -54,6 +54,11 @@ class Window extends Widget
         );
     }
 
+    /**
+     * @param $position
+     *
+     * @throws \Exception
+     */
     public function setPosition($position)
     {
         Gtk::getInstance()->gtk_window_set_position(

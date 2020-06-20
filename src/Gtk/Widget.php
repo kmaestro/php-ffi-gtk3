@@ -20,7 +20,7 @@ class Widget
      * @param $width
      * @param $height
      */
-    public function setSizeRequest($width, $height): void
+    public function setSizeRequest(int $width, int $height): void
     {
         Gtk::getInstance()->gtk_widget_set_size_request($this->widget, $width, $height);
     }

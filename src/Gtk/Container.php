@@ -12,6 +12,12 @@ use Gtk3\Gtk\Window;
  */
 class Container
 {
+    /**
+     * @param \Gtk3\Gtk\Window $window
+     * @param Widget           $widget
+     *
+     * @throws \Exception
+     */
     public function add(Window $window, Widget $widget)
     {
         Gtk::getInstance()->gtk_container_add(
