@@ -21,12 +21,19 @@ typedef struct _GObject GObject;
 typedef struct _GtkStyleContext GtkStyleContext;
 typedef struct _GtkTextBuffer GtkTextBuffer;
 typedef struct _GtkTextView GtkTextView;
+typedef struct _GtkBox GtkBox;
 
 typedef enum
 {
   GTK_WINDOW_TOPLEVEL,
   GTK_WINDOW_POPUP
 } GtkWindowType;
+
+typedef enum
+{
+    GTK_ORIENTATION_HORIZONTAL,
+    GTK_ORIENTATION_VERTICAL
+} GtkOrientation;
 
 typedef enum
 {
@@ -70,6 +77,7 @@ typedef enum
 #include "functions/gtk/builder.h"
 #include "functions/gtk/text_view.h"
 #include "functions/gtk/text_buffer.h"
+#include "functions/gtk/box.h"
 #include "functions/g/main.h"
 #include "functions/g/application.h"
 #include "functions/g/object.h"
