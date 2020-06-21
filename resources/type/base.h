@@ -14,3 +14,4 @@ typedef uint16_t guint16;
 typedef int32_t gint32;
 typedef uint32_t guint32;
 typedef void* gpointer;
+typedef guint32 gunichar;

@@ -22,6 +22,7 @@ typedef struct _GtkStyleContext GtkStyleContext;
 typedef struct _GtkTextBuffer GtkTextBuffer;
 typedef struct _GtkTextView GtkTextView;
 typedef struct _GtkBox GtkBox;
+typedef struct _GtkEntry GtkEntry;
 
 typedef enum
 {
@@ -78,6 +79,7 @@ typedef enum
 #include "functions/gtk/text_view.h"
 #include "functions/gtk/text_buffer.h"
 #include "functions/gtk/box.h"
+#include "functions/gtk/entry.h"
 #include "functions/g/main.h"
 #include "functions/g/application.h"
 #include "functions/g/object.h"

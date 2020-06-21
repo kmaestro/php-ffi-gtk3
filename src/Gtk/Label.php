@@ -33,4 +33,17 @@ class Label extends Widget
             $text
         );
     }
+
+    /**
+     * @param int $char
+     *
+     * @throws \Exception
+     */
+    public function setWidthChars(int $char): void
+    {
+        Gtk::getInstance()->gtk_label_set_width_chars(
+            Gtk::getInstance()->cast('GtkLabel*', $this->widget),
+            $char
+        );
+    }
 }
