@@ -6,3 +6,8 @@ extern void gtk_window_get_size (GtkWindow *window, gint *width, gint *height);
 extern void gtk_window_fullscreen(GtkWindow *window);
 extern void gtk_window_unfullscreen (GtkWindow *window);
 extern void gtk_window_set_position (GtkWindow *window, GtkWindowPosition position);
+extern void gtk_window_resize(GtkWindow *window, gint width, gint height);
+extern void gtk_window_set_resizable(GtkWindow *window, gboolean resizable);
+extern void gtk_window_present(GtkWindow *window);
+extern void gtk_window_maximize(GtkWindow *window);
+extern void gtk_window_unmaximize(GtkWindow *window);
