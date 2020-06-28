@@ -26,9 +26,22 @@ class Label extends Widget
      *
      * @throws \Exception
      */
-    public function setText(string $text)
+    public function setText(string $text): void
     {
         Gtk::getInstance()->gtk_label_set_text(
+            Gtk::getInstance()->cast('GtkLabel*', $this->widget),
+            $text
+        );
+    }
+
+    /**
+     * @param string $text
+     *
+     * @throws \Exception
+     */
+    public function setMarkup(string $text): void
+    {
+        Gtk::getInstance()->gtk_label_set_markup(
             Gtk::getInstance()->cast('GtkLabel*', $this->widget),
             $text
         );

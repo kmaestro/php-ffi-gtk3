@@ -23,6 +23,7 @@ typedef struct _GtkTextBuffer GtkTextBuffer;
 typedef struct _GtkTextView GtkTextView;
 typedef struct _GtkBox GtkBox;
 typedef struct _GtkEntry GtkEntry;
+typedef struct _GFile GFile;
 
 typedef enum
 {

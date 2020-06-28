@@ -12,7 +12,7 @@ trait SingletonTrait
     private static ?self $instance = null;
 
     /**
-     * @return $this
+     * @return self $this
      */
     public static function getInstance(): self
     {
@@ -20,7 +20,7 @@ trait SingletonTrait
     }
 
     /**
-     * @param SingletonTrait|null $instance
+     * @param  self|null $instance
      * @return void
      */
     public static function setInstance(?self $instance): void

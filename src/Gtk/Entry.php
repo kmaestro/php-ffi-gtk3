@@ -7,9 +7,7 @@ namespace Gtk3\Gtk;
 use Gtk3\Gtk;
 
 /**
- * Class Entry
- *
- * @package Gtk3\Gtk
+ * A single line text entry field.
  */
 class Entry extends Widget
 {
@@ -22,6 +20,8 @@ class Entry extends Widget
     }
 
     /**
+     * sdfsd
+     *
      * @param int $max
      *
      * @throws \Exception
@@ -42,7 +42,7 @@ class Entry extends Widget
      */
     public function getText(int $max): string
     {
-        return Gtk::getInstance()->gtk_entry_get_text(
+        return (string) Gtk::getInstance()->gtk_entry_get_text(
             Gtk::getInstance()->cast('GtkEntry *', $this->widget),
         );
     }

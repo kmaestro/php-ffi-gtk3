@@ -1,15 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Gtk3;
 
 use Serafim\FFILoader\BitDepth;
 use Serafim\FFILoader\Library as BaseLibrary;
 use Serafim\FFILoader\OperatingSystem;
 
+/**
+ * Rdf
+ */
 class Library extends BaseLibrary
 {
     private const LIBRARY_LINUX = 'libgtk-3.so.0';
 
+    /**
+     * Tsdf
+     *
+     * @var string|null
+     */
     private ?string $version = null;
 
     public function getName(): string

@@ -17,5 +17,15 @@
         "psr-4": {
             "Gtk3\\": "src"
         }
+    },
+    "require-dev": {
+        "vimeo/psalm": "^3.12",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "scripts": {
+        "lint": "phplint",
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "psalm": "psalm"
     }
 }

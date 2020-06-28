@@ -25,10 +25,9 @@ trait ProxyTrait
     }
 
     /**
-     * For PHPStorm autocomplete support
-     *
-     * @param CData|CPtr $type
-     * @return CPtr|CData|mixed
+     * @param  CData $type
+     * @return CData
+     * @psalm-suppress MixedInferredReturnType
      */
     public static function addr(CData $type): CData
     {
@@ -36,15 +35,15 @@ trait ProxyTrait
     }
 
     /**
-     * @param string $type
-     * @param bool $owned
-     * @param bool $persistent
+     * @param  string $type
+     * @param  bool   $owned
+     * @param  bool   $persistent
      * @return CData
+     * @psalm-suppress MixedInferredReturnType
      */
     public function new(string $type, bool $owned = true, bool $persistent = false): CData
     {
         try {
-            /** @noinspection StaticInvocationViaThisInspection */
             return $this->info->ffi->new($this->nameToInternal($type), $owned, $persistent);
         } catch (ParserException $e) {
             $error = \sprintf('Structure "%s" not found. %s', $type, \ucfirst($e->getMessage()));
@@ -54,8 +53,11 @@ trait ProxyTrait
     }
 
     /**
-     * @param string $type
+     * @param  string $type
      * @return string
+     * @psalm-suppress MixedAssignment
+     * @psalm-suppress MixedArgumentTypeCoercion
+     * @psalm-suppress MixedOperand
      */
     protected function namespaceToPrefix(string $type): string
     {
@@ -73,7 +75,7 @@ trait ProxyTrait
     }
 
     /**
-     * @param string $type
+     * @param  string $type
      * @return string
      */
     protected function nameToInternal(string $type): string
@@ -91,9 +93,11 @@ trait ProxyTrait
     }
 
     /**
-     * @param string|CType $type
-     * @param CData $ptr
+     * @param  string|CType $type
+     * @param  CData        $ptr
      * @return CData
+     * @psalm-suppress PossiblyInvalidArgument
+     * @psalm-suppress MixedInferredReturnType
      */
     public function cast($type, CData $ptr): CData
     {
@@ -102,7 +106,6 @@ trait ProxyTrait
         }
 
         try {
-            /** @noinspection StaticInvocationViaThisInspection */
             return $this->info->ffi->cast($type, $ptr);
         } catch (ParserException $e) {
             $error = \sprintf('Structure "%s" not found. %s', $type, \ucfirst($e->getMessage()));
@@ -112,8 +115,10 @@ trait ProxyTrait
     }
 
     /**
-     * @param string|CType $type
+     * @param  string|CType $type
      * @return CType
+     * @psalm-suppress PossiblyInvalidArgument
+     * @psalm-suppress MixedInferredReturnType
      */
     public function type($type): CType
     {
@@ -122,7 +127,6 @@ trait ProxyTrait
         }
 
         try {
-            /** @noinspection StaticInvocationViaThisInspection */
             return $this->info->ffi->type($type);
         } catch (ParserException $e) {
             $error = \sprintf('Structure "%s" not found. %s', $type, \ucfirst($e->getMessage()));
@@ -140,7 +144,7 @@ trait ProxyTrait
     }
 
     /**
-     * @param string $name
+     * @param  string $name
      * @return mixed
      */
     public function __get(string $name)
@@ -149,9 +153,8 @@ trait ProxyTrait
     }
 
     /**
-     * @param string $name
-     * @param mixed $value
-     * @return mixed
+     * @param        string $name
+     * @param        mixed  $value
      * @noinspection MagicMethodsValidityInspection
      */
     public function __set(string $name, $value): void

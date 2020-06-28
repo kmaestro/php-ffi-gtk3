@@ -30,7 +30,7 @@ class Grid extends Widget
      *
      * @throws \Exception
      */
-    public function attach(Widget $widget, int $left, int $top, int $width, int $height)
+    public function attach(Widget $widget, int $left, int $top, int $width, int $height): void
     {
         Gtk::getInstance()->gtk_grid_attach(
             Gtk::getInstance()->cast('GtkGrid *', $this->widget),

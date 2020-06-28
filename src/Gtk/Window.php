@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Gtk3\Gtk;
 
 use Gtk3\Gtk;
+use FFI\CData;
 
 /**
  * Class Window
@@ -22,16 +23,24 @@ class Window extends Widget
 
     /**
      * Window constructor.
+     *
+     * @param int $type
      */
     public function __construct(int $type = self::GTK_WINDOW_TOPLEVEL)
     {
-        $this->widget = Gtk::getInstance()->gtk_window_new($type);
+        $window = Gtk::getInstance()->gtk_window_new($type);
+        if ($window instanceof CData) {
+            $this->widget = $window;
+        } else {
+            throw new \RuntimeException('Error.');
+        }
+
     }
 
     /**
      * @param string $title
      */
-    public function setTitle(string $title)
+    public function setTitle(string $title): void
     {
         Gtk::getInstance()->gtk_window_set_title(Gtk::getInstance()->cast("GtkWindow *", $this->widget), $title);
     }
@@ -39,7 +48,7 @@ class Window extends Widget
     /**
      * @param string $title
      */
-    public function setSize(int $width, int $height)
+    public function setSize(int $width, int $height): void
     {
         Gtk::getInstance()->gtk_window_set_default_size(Gtk::getInstance()->cast("GtkWindow *", $this->widget), $width, $height);
     }
@@ -47,7 +56,7 @@ class Window extends Widget
     /**
      * @throws \Exception
      */
-    public function fullscreen()
+    public function fullscreen(): void
     {
         Gtk::getInstance()->gtk_window_fullscreen(
             Gtk::getInstance()->cast("GtkWindow *", $this->widget)
@@ -59,7 +68,7 @@ class Window extends Widget
      *
      * @throws \Exception
      */
-    public function setPosition(int $position)
+    public function setPosition(int $position): void
     {
         Gtk::getInstance()->gtk_window_set_position(
             Gtk::getInstance()->cast("GtkWindow *", $this->widget),
@@ -70,7 +79,7 @@ class Window extends Widget
     /**
      * @throws \Exception
      */
-    public function unfullscreen()
+    public function unfullscreen(): void
     {
         Gtk::getInstance()->gtk_window_unfullscreen (
             Gtk::getInstance()->cast("GtkWindow *", $this->widget)

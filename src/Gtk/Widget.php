@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Gtk3\Gtk;
 
 use Gtk3\Gtk;
+use FFI\CData;
 
 /**
  * GtkWidget is the base class all widgets in GTK+ derive from. It manages the widget lifecycle, states and style.
@@ -14,7 +15,7 @@ class Widget
     /**
      * @var
      */
-    public $widget;
+    public CData $widget;
 
     /**
      * @param $width

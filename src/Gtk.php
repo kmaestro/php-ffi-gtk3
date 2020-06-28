@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Gtk3;
 
 use FFI;
-use Gtk3\Library;
 use Gtk3\Support\ProxyTrait;
 use Gtk3\Support\SingletonTrait;
 use Serafim\FFILoader\LibraryInformation;
@@ -52,7 +51,7 @@ class Gtk
     }
 
     /**
-     * @param LibraryInterface $library
+     * @param  LibraryInterface $library
      * @return LibraryInformation
      */
     public function loadLibrary(LibraryInterface $library): LibraryInformation
@@ -61,8 +60,8 @@ class Gtk
     }
 
     /**
-     * @param int $argc
-     * @param array $argv
+     * @param  int   $argc
+     * @param  array $argv
      * @throws \Exception
      */
     public function init(int $argc = 0, array $argv = [])

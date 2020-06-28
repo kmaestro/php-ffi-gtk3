@@ -17,10 +17,21 @@ class Signal
      * @param callable $c_handler
      * @param null     $data
      *
-     * @return mixed
+     * @return int
      */
-    public function connect(Widget $instance, string $detailed_signal, callable $c_handler, $data = null): int
-    {
-        return Gtk::getInstance()->g_signal_connect_data($instance->widget, $detailed_signal, $c_handler, $data, null, null);
+    public function connect(
+        Widget $instance,
+        string $detailed_signal,
+        callable $c_handler,
+        $data = null
+    ): int {
+        return (int) Gtk::getInstance()->g_signal_connect_data(
+            $instance->widget,
+            $detailed_signal,
+            $c_handler,
+            $data,
+            null,
+            null
+        );
     }
 }
