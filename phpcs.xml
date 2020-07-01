@@ -4,43 +4,12 @@
     <arg name="colors"/>
     <arg name="cache" value="var/cache/.phpcs.json"/>
 
-    <rule ref="PSR12">
-        <exclude name="PSR2.Methods.FunctionCallSignature"/>
-    </rule>
-
-    <rule ref="Squiz.NamingConventions.ValidVariableName">
-        <exclude name="Squiz.NamingConventions.ValidVariableName.PublicHasUnderscore"/>
-        <exclude name="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
-    </rule>
-
+    <rule ref="PSR12"/>
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
-
-    <rule ref="Generic.Commenting.DocComment"/>
-    <rule ref="Squiz.Commenting.BlockComment"/>
-    <rule ref="Squiz.Commenting.DocCommentAlignment"/>
-    <rule ref="Squiz.Commenting.ClassComment">
-        <exclude name="Squiz.Commenting.ClassComment.TagNotAllowed"/>
-    </rule>
-        <rule ref="Squiz.Commenting.FunctionComment">
-            <exclude name="Squiz.Commenting.FunctionComment.MissingReturn"/>
-            <exclude name="Squiz.Commenting.FunctionComment.EmptyThrows"/>
-            <exclude name="Squiz.Commenting.FunctionComment.IncorrectParamVarName"/>
-            <exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/>
-            <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/>
-            <exclude name="Squiz.Commenting.FunctionComment.TypeHintMissing"/>
-        </rule>
-    <rule ref="Squiz.Commenting.VariableComment">
-        <exclude name="Squiz.Commenting.VariableComment.IncorrectVarType"/>
-    </rule>
-
-    <rule ref="Generic.PHP.RequireStrictTypes"/>
-
-    <rule ref="Generic.Commenting.DocComment.NonParamGroup">
-        <severity>0</severity>
-    </rule>
-
-    <rule ref="Squiz.Functions.FunctionDeclaration.Found">
-        <severity>0</severity>
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+        <properties>
+            <property name="ignoreBlankLines" value="false"/>
+        </properties>
     </rule>
 
     <file>src</file>

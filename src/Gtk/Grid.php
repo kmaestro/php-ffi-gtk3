@@ -35,7 +35,10 @@ class Grid extends Widget
         Gtk::getInstance()->gtk_grid_attach(
             Gtk::getInstance()->cast('GtkGrid *', $this->widget),
             Gtk::getInstance()->cast('GtkWidget *', $widget->widget),
-            $left, $top, $width, $height
+            $left,
+            $top,
+            $width,
+            $height
         );
     }
 }

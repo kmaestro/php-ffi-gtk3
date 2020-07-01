@@ -25,7 +25,8 @@ class CssProvider
         $error = Gtk::getInstance()->new('GError*');
         return Gtk::getInstance()->gtk_css_provider_load_from_path(
             Gtk::getInstance()->cast('GtkCssProvider*', $this->provider),
-            $path, Gtk::addr($error)
+            $path,
+            Gtk::addr($error)
         );
     }
 }

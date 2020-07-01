@@ -34,7 +34,6 @@ class Window extends Widget
         } else {
             throw new \RuntimeException('Error.');
         }
-
     }
 
     /**
@@ -50,7 +49,12 @@ class Window extends Widget
      */
     public function setSize(int $width, int $height): void
     {
-        Gtk::getInstance()->gtk_window_set_default_size(Gtk::getInstance()->cast("GtkWindow *", $this->widget), $width, $height);
+        Gtk::getInstance()
+            ->gtk_window_set_default_size(
+                Gtk::getInstance()->cast("GtkWindow *", $this->widget),
+                $width,
+                $height
+            );
     }
 
     /**
@@ -81,7 +85,7 @@ class Window extends Widget
      */
     public function unfullscreen(): void
     {
-        Gtk::getInstance()->gtk_window_unfullscreen (
+        Gtk::getInstance()->gtk_window_unfullscreen(
             Gtk::getInstance()->cast("GtkWindow *", $this->widget)
         );
     }
@@ -94,9 +98,10 @@ class Window extends Widget
      */
     public function resize(int $width, int $height): void
     {
-        Gtk::getInstance()->gtk_window_resize (
+        Gtk::getInstance()->gtk_window_resize(
             Gtk::getInstance()->cast("GtkWindow*", $this->widget),
-            $width, $height
+            $width,
+            $height
         );
     }
 
