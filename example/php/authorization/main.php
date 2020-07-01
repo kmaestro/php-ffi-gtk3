@@ -22,7 +22,7 @@ $window->setPosition(0);
 $window->setSize(200, 200);
 
 $signal = new Gtk\Signal();
-$signal->connect($window, 'destroy', 'closeApp', null);
+$window->connect('destroy', 'closeApp', null);
 
 
 $usernameLabel = new Gtk\Label('Login: ');

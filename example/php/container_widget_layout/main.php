@@ -3,9 +3,7 @@ require __DIR__ . '/../../../vendor/autoload.php';
 
 use Gtk3\Gtk;
 use Gtk3\Gtk\Window;
-use Gtk3\Gtk\Button;
 use Gtk3\Gtk\Container;
-use Gtk3\Gtk\Signal;
 use Gtk3\Gtk\Label;
 use Gtk3\Gtk\Box;
 
@@ -29,9 +27,8 @@ $window->setTitle('The Window Title');
 $window->setPosition(1);
 $window->setSizeRequest( 300, 200);
 
-$signal = new Signal();
-$signal->connect($window, 'destroy', 'my_close_app', null);
-$signal->connect($window, 'delete_event', 'my_delete_event', null);
+$window->connect('destroy', 'my_close_app', null);
+$window->connect( 'delete_event', 'my_delete_event', null);
 
 $label1 = new Label('Label 1');
 $label2 = new Label('Label 2');

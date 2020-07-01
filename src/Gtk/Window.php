@@ -17,11 +17,6 @@ class Window extends Widget
     public const GTK_WINDOW_POPUP = 1;
 
     /**
-     * @var
-     */
-    public $window;
-
-    /**
      * Window constructor.
      *
      * @param int $type
@@ -145,6 +140,28 @@ class Window extends Widget
     {
         Gtk::getInstance()->gtk_window_unmaximize(
             Gtk::getInstance()->cast("GtkWindow*", $this->widget)
+        );
+    }
+
+    /**
+     * @param string   $detailed_signal
+     * @param callable $c_handler
+     * @param null     $data
+     *
+     * @return int
+     */
+    public function connect(
+        string $detailed_signal,
+        callable $c_handler,
+        $data = null
+    ): int {
+        return (int) Gtk::getInstance()->g_signal_connect_data(
+            $this->widget,
+            $detailed_signal,
+            $c_handler,
+            $data,
+            null,
+            null
         );
     }
 }
