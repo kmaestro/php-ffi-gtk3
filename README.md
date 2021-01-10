@@ -1,6 +1,6 @@
 ### Requirement
 
-- php (7.4)
+- php (8.0)
 - ext-FFI
 - gtk-3
 

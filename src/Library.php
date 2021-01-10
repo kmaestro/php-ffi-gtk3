@@ -29,7 +29,7 @@ class Library extends BaseLibrary
 
     public function getVersion(string $library): string
     {
-        return '0.0.3';
+        return '0.0.4';
     }
 
     public function getHeaders(): string
