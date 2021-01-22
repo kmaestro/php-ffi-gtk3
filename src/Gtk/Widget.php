@@ -9,6 +9,10 @@ use FFI\CData;
 
 /**
  * GtkWidget is the base class all widgets in GTK+ derive from. It manages the widget lifecycle, states and style.
+ *
+ * @method setSizeRequest(int $width, int $height): void
+ * @method show(): void
+ * @method showAll(): void
  */
 class Widget
 {
@@ -17,28 +21,11 @@ class Widget
      */
     public CData $widget;
 
-    /**
-     * @param $width
-     * @param $height
-     */
-    public function setSizeRequest(int $width, int $height): void
+    public function __call(string $name, array $arguments)
     {
-        Gtk::getInstance()->gtk_widget_set_size_request($this->widget, $width, $height);
-    }
+        $functionName = 'gtk_widget_' . strtolower(preg_replace('~([A-Z])~', '_$1', $name));
+        $cast = "GtkWidget *";
 
-    /**
-     *
-     */
-    public function show(): void
-    {
-        Gtk::getInstance()->gtk_widget_show($this->widget);
-    }
-
-    /**
-     *
-     */
-    public function showAll(): void
-    {
-        Gtk::getInstance()->gtk_widget_show_all($this->widget);
+        Gtk::getInstance()->$functionName(Gtk::getInstance()->cast($cast, $this->widget), ...$arguments);
     }
 }

@@ -19,7 +19,7 @@ $gtk->init();
 $window = new Window();
 $window->setTitle('GtkEntryBox');
 $window->setPosition(0);
-$window->setSize(200, 200);
+$window->setDefaultSize(200, 200);
 
 $signal = new Gtk\Signal();
 $window->connect('destroy', 'closeApp', null);

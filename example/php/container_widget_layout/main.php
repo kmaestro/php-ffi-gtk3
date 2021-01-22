@@ -31,6 +31,8 @@ $window->connect('destroy', 'my_close_app', null);
 $window->connect( 'delete_event', 'my_delete_event', null);
 
 $label1 = new Label('Label 1');
+$label1->setText('sdf');
+$label1->setWidthChars(1);
 $label2 = new Label('Label 2');
 $label3 = new Label('Label 3');
 

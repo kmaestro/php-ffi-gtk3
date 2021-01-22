@@ -7,7 +7,10 @@ use Gtk3\Gtk;
 /**
  * Class Label
  *
- * @package Gtk3\Gtk
+ * @method setWidthChars(int $char): void
+ * @method setText(string $text): void
+ * @method setMarkup(string $text): void
+ *
  */
 class Label extends Widget
 {
@@ -21,42 +24,15 @@ class Label extends Widget
         $this->widget = Gtk::getInstance()->gtk_label_new($text);
     }
 
-    /**
-     * @param string $text
-     *
-     * @throws \Exception
-     */
-    public function setText(string $text): void
+    public function __call(string $name, array $arguments)
     {
-        Gtk::getInstance()->gtk_label_set_text(
-            Gtk::getInstance()->cast('GtkLabel*', $this->widget),
-            $text
-        );
-    }
+        $functionName = 'gtk_label_' . strtolower(preg_replace('~([A-Z])~', '_$1', $name));
+        $cast = "GtkLabel *";
 
-    /**
-     * @param string $text
-     *
-     * @throws \Exception
-     */
-    public function setMarkup(string $text): void
-    {
-        Gtk::getInstance()->gtk_label_set_markup(
-            Gtk::getInstance()->cast('GtkLabel*', $this->widget),
-            $text
-        );
-    }
-
-    /**
-     * @param int $char
-     *
-     * @throws \Exception
-     */
-    public function setWidthChars(int $char): void
-    {
-        Gtk::getInstance()->gtk_label_set_width_chars(
-            Gtk::getInstance()->cast('GtkLabel*', $this->widget),
-            $char
-        );
+        try {
+            return Gtk::getInstance()->$functionName(Gtk::getInstance()->cast($cast, $this->widget), ...$arguments);
+        } catch (\Throwable) {
+            return parent::__call($name, $arguments);
+        }
     }
 }

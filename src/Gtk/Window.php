@@ -9,6 +9,18 @@ use FFI\CData;
 
 /**
  * Class Window
+ *
+ * @method setTitle(string $title): void
+ * @method setPosition(int $position): void
+ * @method setDefaultSize(int $width, int $height): void
+ * @method fullscreen(): void
+ * @method unfullscreen(): void
+ * @method resize(int $width, int $height): void
+ * @method setResizable(bool $resizable = true): void
+ * @method present(): void
+ * @method maximize(): void
+ * @method unmaximize(): void
+ *
  */
 class Window extends Widget
 {
@@ -31,118 +43,17 @@ class Window extends Widget
         }
     }
 
-    /**
-     * @param string $title
-     */
-    public function setTitle(string $title): void
+    public function __call(string $name, array $arguments)
     {
-        Gtk::getInstance()->gtk_window_set_title(Gtk::getInstance()->cast("GtkWindow *", $this->widget), $title);
-    }
+        $functionName = 'gtk_window_' . strtolower(preg_replace('~([A-Z])~', '_$1', $name));
+        $cast = "GtkWindow *";
 
-    /**
-     * @param string $title
-     */
-    public function setSize(int $width, int $height): void
-    {
-        Gtk::getInstance()
-            ->gtk_window_set_default_size(
-                Gtk::getInstance()->cast("GtkWindow *", $this->widget),
-                $width,
-                $height
-            );
+        try {
+            return Gtk::getInstance()->$functionName(Gtk::getInstance()->cast($cast, $this->widget), ...$arguments);
+        } catch (\Throwable) {
+            parent::__call($name, $arguments);
+        }
     }
-
-    /**
-     * @throws \Exception
-     */
-    public function fullscreen(): void
-    {
-        Gtk::getInstance()->gtk_window_fullscreen(
-            Gtk::getInstance()->cast("GtkWindow *", $this->widget)
-        );
-    }
-
-    /**
-     * @param $position
-     *
-     * @throws \Exception
-     */
-    public function setPosition(int $position): void
-    {
-        Gtk::getInstance()->gtk_window_set_position(
-            Gtk::getInstance()->cast("GtkWindow *", $this->widget),
-            $position
-        );
-    }
-
-    /**
-     * @throws \Exception
-     */
-    public function unfullscreen(): void
-    {
-        Gtk::getInstance()->gtk_window_unfullscreen(
-            Gtk::getInstance()->cast("GtkWindow *", $this->widget)
-        );
-    }
-
-    /**
-     * @param int $width
-     * @param int $height
-     *
-     * @throws \Exception
-     */
-    public function resize(int $width, int $height): void
-    {
-        Gtk::getInstance()->gtk_window_resize(
-            Gtk::getInstance()->cast("GtkWindow*", $this->widget),
-            $width,
-            $height
-        );
-    }
-
-    /**
-     * @param bool $resizable
-     *
-     * @throws \Exception
-     */
-    public function setResizable(bool $resizable = true): void
-    {
-        Gtk::getInstance()->gtk_window_set_resizable(
-            Gtk::getInstance()->cast("GtkWindow*", $this->widget),
-            $resizable
-        );
-    }
-
-    /**
-     * @throws \Exception
-     */
-    public function present(): void
-    {
-        Gtk::getInstance()->gtk_window_present(
-            Gtk::getInstance()->cast("GtkWindow*", $this->widget)
-        );
-    }
-
-    /**
-     * @throws \Exception
-     */
-    public function maximize(): void
-    {
-        Gtk::getInstance()->gtk_window_maximize(
-            Gtk::getInstance()->cast("GtkWindow*", $this->widget)
-        );
-    }
-
-    /**
-     * @throws \Exception
-     */
-    public function unmaximize(): void
-    {
-        Gtk::getInstance()->gtk_window_unmaximize(
-            Gtk::getInstance()->cast("GtkWindow*", $this->widget)
-        );
-    }
-
     /**
      * @param string   $detailed_signal
      * @param callable $c_handler
