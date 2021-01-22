@@ -17,11 +17,15 @@ use Serafim\FFILoader\Loader;
 class Gtk
 {
     use ProxyTrait;
-    use SingletonTrait;
 
     public LibraryInformation $info;
 
     public Loader $loader;
+
+    /**
+     * @var self|null
+     */
+    private static ?self $instance = null;
 
     /**
      * Gtk constructor.
@@ -33,6 +37,23 @@ class Gtk
         $this->info = $this->loadLibrary(new Library());
 
         self::setInstance($this);
+    }
+
+    /**
+     * @return self $this
+     */
+    public static function getInstance(): self
+    {
+        return self::$instance ??= new static();
+    }
+
+    /**
+     * @param  self|null $instance
+     * @return void
+     */
+    public static function setInstance(?self $instance): void
+    {
+        self::$instance = $instance;
     }
 
     /**
@@ -49,6 +70,7 @@ class Gtk
 
         return $loader;
     }
+
 
     /**
      * @param  LibraryInterface $library
