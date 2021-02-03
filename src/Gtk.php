@@ -6,7 +6,6 @@ namespace Gtk3;
 
 use FFI;
 use Gtk3\Support\ProxyTrait;
-use Gtk3\Support\SingletonTrait;
 use Serafim\FFILoader\LibraryInformation;
 use Serafim\FFILoader\LibraryInterface;
 use Serafim\FFILoader\Loader;

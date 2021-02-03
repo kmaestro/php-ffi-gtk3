@@ -22,12 +22,13 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Gtk3\Gtk;
 use Gtk3\Gtk\Window;
+use Gtk3\Enum\WindowEnum;
 
 $gtk = Gtk::getInstance();
 
 $gtk->init();
 
-$window = new Window(Window::GTK_WINDOW_TOPLEVEL);
+$window = new Window(WindowEnum::topLevel());
 $window->show();
 
 $gtk->main();

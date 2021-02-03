@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Gtk3\Gtk;
 
+use Gtk3\Enum\WindowEnum;
 use Gtk3\Gtk;
 use FFI\CData;
 
@@ -24,18 +25,16 @@ use FFI\CData;
  */
 class Window extends Widget
 {
-    public const GTK_WINDOW_TOPLEVEL = 0;
-
-    public const GTK_WINDOW_POPUP = 1;
-
     /**
      * Window constructor.
      *
-     * @param int $type
+     * @param WindowEnum $type
      */
-    public function __construct(int $type = self::GTK_WINDOW_TOPLEVEL)
+    public function __construct(WindowEnum $type = null)
     {
-        $window = Gtk::getInstance()->gtk_window_new($type);
+        if ($type === null)
+            $type = WindowEnum::topLevel();
+        $window = Gtk::getInstance()->gtk_window_new($type->value());
         if ($window instanceof CData) {
             $this->widget = $window;
         } else {

@@ -9,7 +9,7 @@ $gtk = Gtk::getInstance();
 
 $gtk->init();
 
-$window = new Window(Window::GTK_WINDOW_TOPLEVEL);
+$window = new Window(\Gtk3\Enum\WindowEnum::popUp());
 $window->show();
 
 $gtk->main();
