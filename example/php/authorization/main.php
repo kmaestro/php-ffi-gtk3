@@ -49,10 +49,10 @@ $signal->connect($okButton, 'clicked', function () use ($passwordEntry){
 
 }, $passwordEntry->widget);
 
-$hbox1 = new Gtk\Box(Gtk\Box::GTK_ORIENTATION_HORIZONTAL, 5);
-$hbox2 = new Gtk\Box(Gtk\Box::GTK_ORIENTATION_HORIZONTAL, 5);
+$hbox1 = new Gtk\Box(\Gtk3\Enum\BoxEnum::horizontal(), 5);
+$hbox2 = new Gtk\Box(\Gtk3\Enum\BoxEnum::horizontal(), 5);
 
-$vbox = new Gtk\Box(Gtk\Box::GTK_ORIENTATION_VERTICAL, 10);
+$vbox = new Gtk\Box(\Gtk3\Enum\BoxEnum::vertical(), 10);
 
 $hbox1->packStart($usernameLabel, true, false, 5);
 $hbox1->packStart($usernameEntry, true, false, 5);

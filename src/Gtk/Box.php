@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Gtk3\Gtk;
 
+use Gtk3\Enum\BoxEnum;
 use Gtk3\Gtk;
 
 /**
@@ -13,18 +14,15 @@ use Gtk3\Gtk;
  */
 class Box extends Widget
 {
-    public const GTK_ORIENTATION_HORIZONTAL = 0;
-    public const GTK_ORIENTATION_VERTICAL = 1;
-
     /**
      * Box constructor.
      *
-     * @param int $orientation
-     * @param int $spacing
+     * @param BoxEnum $orientation
+     * @param int     $spacing
      */
-    public function __construct(int $orientation, int $spacing)
+    public function __construct(BoxEnum $orientation, int $spacing)
     {
-        $this->widget = Gtk::getInstance()->gtk_box_new($orientation, $spacing);
+        $this->widget = Gtk::getInstance()->gtk_box_new($orientation->value(), $spacing);
     }
 
     /**
