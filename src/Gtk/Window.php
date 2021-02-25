@@ -23,8 +23,12 @@ use FFI\CData;
  * @method unmaximize(): void
  *
  */
-class Window extends Widget
+class Window
 {
+    public $window;
+
+    private $widget;
+
     /**
      * Window constructor.
      *
@@ -34,12 +38,13 @@ class Window extends Widget
     {
         if ($type === null)
             $type = WindowEnum::topLevel();
-        $window = Gtk::getInstance()->gtk_window_new($type->value());
-        if ($window instanceof CData) {
-            $this->widget = $window;
-        } else {
-            throw new \RuntimeException('Error.');
-        }
+        $this->window = Gtk::getInstance()->gtk_window_new($type->value());
+        $this->widget = new Widget($this->window);
+    }
+
+    public function widget(): Widget
+    {
+        return $this->widget;
     }
 
     public function __call(string $name, array $arguments)
@@ -47,12 +52,9 @@ class Window extends Widget
         $functionName = 'gtk_window_' . strtolower(preg_replace('~([A-Z])~', '_$1', $name));
         $cast = "GtkWindow *";
 
-        try {
-            return Gtk::getInstance()->$functionName(Gtk::getInstance()->cast($cast, $this->widget), ...$arguments);
-        } catch (\Throwable) {
-            parent::__call($name, $arguments);
-        }
+        return Gtk::getInstance()->$functionName(Gtk::getInstance()->cast($cast, $this->window), ...$arguments);
     }
+
     /**
      * @param string   $detailed_signal
      * @param callable $c_handler
@@ -66,7 +68,7 @@ class Window extends Widget
         $data = null
     ): int {
         return (int) Gtk::getInstance()->g_signal_connect_data(
-            $this->widget,
+            $this->window,
             $detailed_signal,
             $c_handler,
             $data,

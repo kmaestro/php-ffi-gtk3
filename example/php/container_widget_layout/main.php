@@ -19,13 +19,13 @@ function my_close_app()
 function my_delete_event()
 {
     print_r("In delete_event\n");
-    return false;
+    return true;
 }
 
 $window = new Window();
 $window->setTitle('The Window Title');
 $window->setPosition(1);
-$window->setSizeRequest( 300, 200);
+$window->setDefaultSize( 300, 200);
 
 $window->connect('destroy', 'my_close_app', null);
 $window->connect( 'delete_event', 'my_delete_event', null);
@@ -48,7 +48,7 @@ $hbox->packStart($label3, true, false, 5);
 $container = new Container();
 $container->add($window, $hbox);
 
-$window->showAll();
+$window->widget()->showAll();
 
 
 $gtk->main();
