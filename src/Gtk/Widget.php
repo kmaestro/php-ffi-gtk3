@@ -16,7 +16,7 @@ use FFI\CData;
  */
 class Widget
 {
-    public function __construct(private CData $widget) { }
+    public function __construct(public CData $widget) { }
 
     public function __call(string $name, array $arguments)
     {

@@ -4,22 +4,9 @@ declare(strict_types=1);
 
 namespace Gtk3\Enum;
 
-class BoxEnum
+enum BoxEnum: int
 {
-    public static function horizontal(): self
-    {
-        return new self(0);
-    }
+    case horizontal = 0;
 
-    public static function vertical(): self
-    {
-        return new self(1);
-    }
-
-    public function value(): int
-    {
-        return $this->value;
-    }
-
-    private function __construct(private int $value){}
+    case vertical = 1;
 }

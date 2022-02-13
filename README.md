@@ -28,7 +28,7 @@ $gtk = Gtk::getInstance();
 
 $gtk->init();
 
-$window = new Window(WindowEnum::topLevel());
+$window = new Window(WindowEnum::topLevel);
 $window->widget()->show();
 
 $gtk->main();

@@ -34,11 +34,9 @@ class Window
      *
      * @param WindowEnum $type
      */
-    public function __construct(WindowEnum $type = null)
+    public function __construct(WindowEnum $type = WindowEnum::topLevel)
     {
-        if ($type === null)
-            $type = WindowEnum::topLevel();
-        $this->window = Gtk::getInstance()->gtk_window_new($type->value());
+        $this->window = Gtk::getInstance()->gtk_window_new($type->value);
         $this->widget = new Widget($this->window);
     }
 

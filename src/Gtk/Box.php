@@ -22,7 +22,7 @@ class Box extends Widget
      */
     public function __construct(BoxEnum $orientation, int $spacing)
     {
-        $this->widget = Gtk::getInstance()->gtk_box_new($orientation->value(), $spacing);
+        $this->widget = Gtk::getInstance()->gtk_box_new($orientation->value, $spacing);
     }
 
     /**
